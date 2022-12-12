@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	string a,b;
+	while(t--){
+	    cin>>a>>b;
+	    int zerocnt1=0,zerocnt2=0,onecnt1=0,onecnt2=0;
+	    for(int i=0;i<a.length();i++){
+	        if(a[i]=='0')
+	        zerocnt1++;
+	        else 
+	        onecnt1++;
+	    }
+	    for(int i=0;i<b.length();i++){
+	        if(b[i]=='0')
+	        zerocnt2++;
+	        else
+	        onecnt2++;
+	    }
+	    
+	    int mini1=min(zerocnt1,onecnt2);
+	    int maxi1=max(zerocnt1,onecnt2);
+	    int rem1=maxi1-mini1;
+	    
+	    int mini2=min(zerocnt2,onecnt1);
+	    int maxi2=max(zerocnt2,onecnt1);
+	    int rem2=maxi2-mini2;
+	    
+	    string ans="";
+	    for(int i=0;i<mini1;i++){
+	        ans+='1';
+	    }
+	    for(int i=0;i<mini2;i++)
+	    ans+='1';
+	    
+	    for(int i=0;i<rem1;i++)
+	    ans+='0';
+	    
+	   
+	    
+	    
+	    	cout<<ans<<endl;
+	    
+	}   
+
+	  
+	return 0;
+}
