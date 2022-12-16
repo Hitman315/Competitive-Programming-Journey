@@ -1,0 +1,20 @@
+#include <bits/stdc++.h> 
+int solve(int n,vector<int>&heights,int index,vector<int>&dp){
+    if(index==n-1)
+        return 0;
+    if(dp[index]!=-1)
+        return dp[index];
+    int left=solve(n,heights,index+1,dp)+abs(heights[index]-heights[index+1]);
+    int right=INT_MAX;
+    if(index<n)
+    right=solve(n,heights,index+2,dp)+abs(heights[index]-heights[index+2]);
+    dp[index]=min(left,right);
+    return dp[index];
+}
+int frogJump(int n, vector<int> &heights)
+{
+    // Write your code here.
+     vector<int>dp(n+1,-1);
+    int index=0;
+    return solve(n,heights,index,dp);
+}
